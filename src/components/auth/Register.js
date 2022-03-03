@@ -22,14 +22,16 @@ const RegisterBlock = styled.div`
 `;
 
 const Register = ({
+  // onChangeUsername,
+  // onChangeNick,
+  // onChangePassword,
+  // onChangeConfirmPassword,
+  position,
   form,
-  onChangeUsername,
-  onChangeNick,
-  onChangePassword,
+  onChange,
   onSubmit,
   error
 }) => {
-  console.log(1);
   return (
     <RegisterBlock>
       <h3 className="a11y">회원가입</h3>
@@ -37,10 +39,12 @@ const Register = ({
         <label htmlFor="">ID</label>
         <input
           type="text"
-          name="idText"
+          name="username"
           id="idText"
           placeholder="아이디를 입력하세요."
-          onChange={onChangeUsername}
+          autoComplete="off"
+          // onChange={onChangeUsername}
+          onChange={onChange}
         />
         <label htmlFor="">NICKNAME</label>
         <input
@@ -48,7 +52,9 @@ const Register = ({
           name="nickname"
           id="nickText"
           placeholder="사용할 닉네임을 입력하세요."
-          onChange={onChangeNick}
+          autoComplete="off"
+          // onChange={onChangeNick}
+          onChange={onChange}
         />
         <label htmlFor="">PASSWORD</label>
         <input
@@ -56,17 +62,17 @@ const Register = ({
           name="password"
           id="password"
           placeholder="비밀번호를 입력하세요."
-          onChange={onChangePassword}
+          // onChange={onChangePassword}
+          onChange={onChange}
         />
         <label htmlFor="">CONFIRM PASSWORD</label>
         <input
           type="password"
-          name="confirmPW"
+          name="confirmPassword"
           id="confirmPW"
           placeholder="비밀번호를 다시 입력하세요."
-          onChange={e => {
-            console.log(e.target.value);
-          }}
+          // onChange={onChangeConfirmPassword}
+          onChange={onChange}
         />
         <button>회원가입</button>
         {error && <span>다시 확인하세요.</span>}
