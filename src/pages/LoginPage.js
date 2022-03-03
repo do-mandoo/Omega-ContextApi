@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Login from '../components/Login/Login';
+import LoginForm from '../containers/auth/LoginForm';
 
 const LoginPageBlock = styled.div`
   width: 100%;
@@ -13,7 +13,7 @@ const LoginPageBlock = styled.div`
 const LoginPage = () => {
   return (
     <LoginPageBlock>
-      <Login />
+      <LoginForm />
     </LoginPageBlock>
   );
 };
