@@ -5,6 +5,7 @@ const PostListPage = () => {
   return (
     <div>
       <PostLists />
+      PostListsPage
     </div>
   );
 };

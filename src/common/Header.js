@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Auth } from '../contexts/store';
 
 const HeaderBlock = styled.div`
   ul,
@@ -17,6 +20,9 @@ const Spacer = styled.div`
 `;
 
 const Header = () => {
+  const { AuthState, AuthDispatch } = useContext(Auth);
+  console.log(AuthState, 'AuthState 뭐있는데');
+
   return (
     <>
       <HeaderBlock>
@@ -32,8 +38,22 @@ const Header = () => {
           </ul>
         </div>
         <div>
-          <button>로그인</button>
+          {AuthState.login || AuthState.login.username ? (
+            <button>로그아웃</button>
+          ) : (
+            <>
+              <button>
+                <Link to="/login">로그인</Link>
+              </button>
+              <button>
+                <Link to="/register">회원가입</Link>
+              </button>
+            </>
+          )}
         </div>
+        <button>
+          <Link to="/write">글쓰기</Link>
+        </button>
       </HeaderBlock>
       <Spacer />
     </>
